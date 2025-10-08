@@ -1,0 +1,293 @@
+.app {
+  height: 100vh;
+  background: url('./images/world_map.jpg') center/cover no-repeat fixed;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 1rem;
+  margin: 4px 0;
+  color: #333;
+}
+
+.start button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px; 
+  position: relative;
+  z-index: 1;
+}
+
+.controls button {
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.extra-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.extra-controls button {
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.flip-card {
+  width: 90%;
+  max-width: 600px;
+  height: 60vh;
+  max-height: 500px;
+  margin: 16px auto 24px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card-back p {
+  font-size: 0.95rem !important;
+}
+
+.flip-card-front h2,
+.flip-card-back h2 {
+  font-size: 1rem;
+  margin: 3px 0; 
+}
+
+.flip-card-front p,
+.flip-card-back p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 55%; /* smaller so full landmark fits */
+  object-fit: contain; /* so it shows whole building */
+  border-radius: 12px;
+  display: block;
+}
+
+.hint {
+  margin-top: auto;
+  padding-bottom: 6px;
+  font-size: 0.8rem;
+  color: #555;
+  text-align: center;
+}
+
+.progress {
+  font-size: 0.75rem;
+  margin: 4px 0;
+  text-align: center;
+}
+
+.guess-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px; 
+}
+
+.guess-form input {
+  padding: 6px 8px;
+  border: 2px solid #888;
+  border-radius: 6px;
+  width: 160px;
+  font-size: 0.85rem;
+}
+
+.guess-form button {
+  padding: 6px 10px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* feedback styles*/
+.correct {
+  color: green;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  header p {
+    font-size: 0.85rem;
+  }
+
+  .flip-card {
+    width: 85%;
+    height: 48vh;
+    max-height: 300px;
+    margin: 8px auto;
+  }
+
+  .flip-card-front h2,
+  .flip-card-back h2 {
+    font-size: 0.85rem;
+  }
+
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .controls {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .controls button,
+  .extra-controls button,
+  .guess-form button {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .guess-form input {
+    width: 140px;
+    font-size: 0.75rem;
+  }
+
+  .hint {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 6px;
+  }
+
+  .flip-card {
+    width: 95%;
+    height: 38vh;
+    max-height: 220px;
+    margin: 6px auto;
+  }
+
+  .image {
+    max-height: 40%;
+    border-radius: 10px;
+  }
+
+  .flip-card-front h2,
+  .flip-card-back h2 {
+    font-size: 0.7rem;
+    margin: 2px 0;
+  }
+
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 0.6rem;
+    line-height: 1.1;
+  }
+
+  .flip-card-back p {
+    font-size: 0.65rem !important;
+  }
+
+  .controls {
+    gap: 4px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .controls button {
+    padding: 3px 6px;
+    font-size: 0.6rem;
+  }
+
+  .hint {
+    font-size: 0.55rem;
+    padding-bottom: 2px;
+  }
+
+  .progress {
+    font-size: 0.65rem;
+  }
+}
